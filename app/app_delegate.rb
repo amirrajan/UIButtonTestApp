@@ -1,6 +1,12 @@
+class FancyButton < UIButton
+  def addTarget(sender, action: method, forControlEvents: controlEvent)
+    super(sender, method, controlEvent)
+  end
+end
+
 class Controller < UIViewController
   def viewDidLoad
-    button = UIButton.buttonWithType(UIButtonTypeRoundedRect)
+    button = FancyButton.buttonWithType(UIButtonTypeRoundedRect)
     button.setTitle('test', forState:UIControlStateNormal)
     button.addTarget(self, action:'blue', forControlEvents:UIControlEventTouchUpInside)
     button.frame = [[20, 260], [view.frame.size.width - 40, 40]]
@@ -10,7 +16,6 @@ class Controller < UIViewController
   def blue
     puts "hello"
   end
-
 end
 
 class AppDelegate
